@@ -15,32 +15,58 @@ document.addEventListener('DOMContentLoaded', () => {
                 data: [3.66, 3.57, 3.17, 3.17, 3.18, 2.90, 2.16, 2.93, 3.10, 3.35],
                 borderColor: 'rgb(54, 162, 235)',
                 backgroundColor: 'rgba(54, 162, 235, 0.5)',
-                tension: 0.1
+                tension: 0.1,
+                // --- DYNAMIC ALIGNMENT LOGIC for Semester GPA ---
+                datalabels: {
+                    align: function(context) {
+                        const index = context.dataIndex;
+                        const gpaValue = context.chart.data.datasets[0].data[index];
+                        const cgpaValue = context.chart.data.datasets[1].data[index];
+                        // If GPA is higher than or equal to CGPA, put its label on top. Otherwise, bottom.
+                        return gpaValue >= cgpaValue ? 'top' : 'bottom';
+                    },
+                    offset: 8
+                }
             }, {
                 label: 'Cumulative GPA',
                 data: [3.66, 3.61, 3.47, 3.39, 3.35, 3.27, 3.11, 3.09, 3.09, 3.11],
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
-                tension: 0.1
+                tension: 0.1,
+                // --- DYNAMIC ALIGNMENT LOGIC for Cumulative GPA ---
+                datalabels: {
+                    align: function(context) {
+                        const index = context.dataIndex;
+                        const gpaValue = context.chart.data.datasets[0].data[index];
+                        const cgpaValue = context.chart.data.datasets[1].data[index];
+                        // This logic is the INVERSE of the one above to prevent collisions.
+                        return gpaValue >= cgpaValue ? 'bottom' : 'top';
+                    },
+                    offset: 8
+                }
             }]
         },
         options: {
             plugins: {
+                // Global settings for all data labels
                 datalabels: {
-                    align: 'end',
-                    anchor: 'end',
-                    backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                    backgroundColor: 'rgba(255, 255, 255, 0.8)',
                     borderRadius: 4,
-                    font: { weight: 'bold' }
+                    font: {
+                        weight: 'bold'
+                    }
                 }
             },
             scales: {
-                y: { suggestedMin: 2.0, suggestedMax: 4.0 }
+                y: {
+                    suggestedMin: 2.0,
+                    suggestedMax: 4.0
+                }
             }
         }
     });
 
-    // --- 2. Grade Distribution Histogram ---
+    // --- 2. Grade Distribution Histogram (No changes here) ---
     const histogramCtx = document.getElementById('histogramChart').getContext('2d');
     new Chart(histogramCtx, {
         type: 'bar',
@@ -50,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 label: 'Grade Count',
                 data: [7, 3, 6, 10, 4, 6, 1, 2, 2, 2, 3],
                 backgroundColor: [
-                    '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', 
+                    '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107',
                     '#FF9800', '#FF5722', '#F44336', '#E91E63', '#9C27B0', '#673AB7'
                 ]
             }]
@@ -64,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     font: { weight: 'bold' }
                 }
             },
-            // UPDATED SCALES FOR Y-AXIS
             scales: {
                 y: {
                     min: 0,
@@ -74,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 3. Grade Distribution Pie Chart ---
+    // --- 3. Grade Distribution Pie Chart (No changes here) ---
     const pieCtx = document.getElementById('pieChart').getContext('2d');
     new Chart(pieCtx, {
         type: 'pie',
