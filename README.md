@@ -23,7 +23,7 @@ An interactive web portfolio visualizing my academic journey through college. It
 
 ## 🚀 Live Demo
 
-[**View the live project here**](https://YOUR_USERNAME.github.io/my-college-grade-analysis/)
+[**View the live project here**](https://babhero10.github.io/my_college_grade_analysis/)
 
 ---
 
@@ -31,7 +31,7 @@ An interactive web portfolio visualizing my academic journey through college. It
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/YOUR_USERNAME/my-college-grade-analysis.git
+    https://github.com/babhero10/my_college_grade_analysis.git
     ```
 
 2.  **Navigate to the project directory:**
