@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdallah's Academic Grade Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- These scripts import the charting libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+</head>
+<body>
+    <header>
+        <h1>Academic Performance Analysis</h1>
+        <p class="student-name">Abdallah Elsayed Ahmed Abdelrahman</p>
+        <p class="major">Computer and Communication Engineering (AI Minor)</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Overall Summary</h2>
+            <p>This report analyzes the academic performance across ten semesters of a Computer and Communication Engineering degree with a minor in Artificial Intelligence. The final Cumulative GPA (CGPA) is <strong>3.11</strong> after successfully completing <strong>169 credit hours</strong>. The analysis highlights a strong academic start, a period of challenging coursework, and a subsequent recovery, demonstrating resilience and a solid grasp of complex engineering topics.</p>
+        </section>
+
+        <section class="card chart-container">
+            <h2>GPA & CGPA Trend</h2>
+            <p>The following chart visualizes the Semester GPA versus the Cumulative GPA. It shows a very strong start, a dip around the Fall 2023 semester, and a positive recovery trend towards the end.</p>
+            <canvas id="gpaTrendChart"></canvas>
+        </section>
+
+        <section class="card chart-container">
+            <h2>Grade Distribution Analysis</h2>
+            <p>The distribution of grades shows a strong concentration in the 'A' and 'B' ranges. The most frequently earned grade is B+, indicating consistent, high-quality work. The charts below provide a detailed breakdown.</p>
+            
+            <!-- Charts are now stacked vertically -->
+            <div class="chart-item">
+                <h3>Histogram of Grade Frequencies</h3>
+                <canvas id="histogramChart"></canvas>
+            </div>
+            <div class="chart-item">
+                <h3>Proportional Grade Distribution</h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Concluding Remarks</h2>
+            <p>The overall academic journey is one of success and perseverance. The final CGPA of 3.11 is a strong achievement for a rigorous engineering program. Key strengths include high performance in foundational and programming courses. The data suggests a consistent ability to handle challenging engineering topics, making for a well-rounded academic profile ready for future challenges in the tech industry.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Portfolio Project - Created by Abdallah</p>
+    </footer>
+
+    <!-- This links to our JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
